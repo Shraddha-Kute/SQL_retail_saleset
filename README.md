@@ -70,34 +70,35 @@ WHERE
 
 The following SQL queries were developed to answer specific business questions:
 
-1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
+1. **Q.1 Write a SQL query to retrieve all columns for sales made on '2022-11-05'**:
 ```sql
 SELECT *
 FROM retail_sales
-WHERE sale_date = '2022-11-05';
+WHERE sale_date='2022-11-05'
 ```
 
-2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
+2. **write a SQL query to retrieve all transactions where the category is 'Clothing' and
+the quantity sold is more than 10 in the month of Nov-2022**:
 ```sql
-SELECT 
-  *
-FROM retail_sales
-WHERE 
-    category = 'Clothing'
-    AND 
-    TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
-    AND
-    quantity >= 4
+SELECT
+    *
+FROM retail_sales 
+WHERE category='Clothing'
+AND
+TO_CHAR(sale_date,'YYYY-MM')='2022-11'
+AND
+quantiy>=4
 ```
 
-3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
+3. **Q.3 Write a SQL query to calculate the total sales (total_sale) for each category**:
 ```sql
 SELECT 
-    category,
-    SUM(total_sale) as net_sale,
-    COUNT(*) as total_orders
-FROM retail_sales
-GROUP BY 1
+  category,
+  SUM(total_sale) AS net_sale,
+  COUNT(*) AS total_order
+  FROM 
+  retail_sales
+  GROUP BY 1
 ```
 
 4. **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.**:
